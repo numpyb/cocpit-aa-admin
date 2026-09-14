@@ -1,0 +1,35 @@
+@use "ct-card.scss";
+@use "page.scss";
+
+.aa-summary {
+    @extend .ct-card;
+    margin-block-end: 1rem;
+}
+
+.aa-summary-item {
+    align-items: center;
+}
+
+.aa-proc-count {
+    cursor: default;
+    font-weight: bold;
+}
+
+.aa-dialog-path {
+    margin-block-end: 0.5rem;
+    font-family: var(--pf-v5-global--FontFamily--monospace);
+}
+
+.aa-dialog-error {
+    color: var(--pf-v5-global--danger-color--200);
+}
+
+.aa-profile-editor textarea {
+    tab-size: 4;
+}
+
+@media screen and (max-width: 768px) {
+    .aa-pagesection-mobile .pf-v5-c-table [data-label] > .pf-v5-c-badge {
+        justify-self: start;
+    }
+}

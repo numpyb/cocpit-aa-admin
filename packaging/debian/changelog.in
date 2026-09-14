@@ -1,0 +1,5 @@
+cockpit-apparmor (VERSION-1) UNRELEASED; urgency=medium
+
+  * Upstream build
+
+ -- Cockpit <cockpit-devel@lists.fedorahosted.org>  Thu, 23 Jul 2020 09:31:21 +0200

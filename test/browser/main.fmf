@@ -1,0 +1,6 @@
+require:
+  - cockpit-apparmor
+  - cockpit-ws
+  - cockpit-system
+  - apparmor-utils
+duration: 30m

@@ -1,0 +1,16 @@
+{
+    "conditions": [
+        {"path-exists": "/sys/kernel/security/apparmor"}
+    ],
+    "menu": {
+        "index": {
+            "label": "AppArmor",
+            "order": 50,
+            "keywords": [
+                {
+                    "matches": ["apparmor", "profiles", "aa-status", "confine", "unconfined", "security"]
+                }
+            ]
+        }
+    }
+}

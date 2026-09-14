@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>me.chabad360.apparmor</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <name>AppArmor</name>
+  <summary>
+    Cockpit component for AppArmor
+  </summary>
+  <description>
+    <p>
+      The Cockpit user interface for AppArmor.
+    </p>
+  </description>
+  <extends>org.cockpit_project.cockpit</extends>
+  <launchable type="cockpit-manifest">apparmor</launchable>
+</component>

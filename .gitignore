@@ -1,0 +1,5 @@
+node_modules/
+*.tar.xz
+*.spec
+packaging/arch/PKGBUILD
+packaging/debian/changelog

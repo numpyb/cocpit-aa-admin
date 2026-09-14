@@ -1,0 +1,15 @@
+pkgname=cockpit-apparmor
+pkgver=VERSION
+pkgrel=1
+pkgdesc='Cockpit UI for AppArmor'
+arch=('any')
+url='https://codeberg.org/numpyb/cocpit-aa-admin'
+license=(LGPL)
+depends=(cockpit apparmor)
+source=("SOURCE")
+sha256sums=('SKIP')
+
+package() {
+  cd $pkgname
+  make DESTDIR="$pkgdir" install PREFIX=/usr
+}

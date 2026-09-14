@@ -1,0 +1,18 @@
+discover:
+    how: fmf
+execute:
+    how: tmt
+
+# Let's handle them upstream only, don't break Fedora/RHEL reverse dependency gating
+environment:
+    TEST_AUDIT_NO_SELINUX: 1
+
+/system:
+    summary: Run tests on system apparmor
+    discover+:
+        test: /test/system
+
+/misc:
+    summary: Run other tests
+    discover+:
+        test: /test/browser/other

@@ -1,0 +1,22 @@
+Source: cockpit-apparmor
+Section: admin
+Priority: optional
+Maintainer: numpyb <numpyb@localhost>
+Build-Depends: debhelper-compat (= 13),
+Standards-Version: 4.6.2
+Rules-Requires-Root: no
+Homepage: https://codeberg.org/numpyb/cocpit-aa-admin
+Vcs-Git: https://codeberg.org/numpyb/cocpit-aa-admin.git
+Vcs-Browser: https://codeberg.org/numpyb/cocpit-aa-admin
+
+Package: cockpit-apparmor
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends},
+         cockpit-bridge,
+         apparmor (>= 3.0),
+Description: Cockpit component for AppArmor
+ The Cockpit Web Console enables users to administer GNU/Linux servers using a
+ web browser.
+ .
+ This package adds an user interface for AppArmor.
