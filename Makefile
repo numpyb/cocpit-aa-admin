@@ -11,6 +11,8 @@ NODE_CACHE=$(RPM_NAME)-node-$(VERSION).tar.xz
 SPEC=$(RPM_NAME).spec
 PREFIX ?= /usr/local
 APPSTREAMFILE=me.chabad360.$(PACKAGE_NAME).metainfo.xml
+DESKTOPFILE=me.chabad360.$(PACKAGE_NAME).desktop
+ICONFILE=me.chabad360.$(PACKAGE_NAME).svg
 VM_IMAGE=$(CURDIR)/test/images/$(TEST_OS)
 # stamp file to check for node_modules/
 NODE_MODULES_TEST=package-lock.json
@@ -121,11 +123,15 @@ install: $(DIST_TEST) po/LINGUAS
 	msgfmt --xml -d po \
 		--template $(APPSTREAMFILE) \
 		-o $(DESTDIR)$(PREFIX)/share/metainfo/$(APPSTREAMFILE)
+	mkdir -p $(DESTDIR)$(PREFIX)/share/applications/
+	cp $(DESKTOPFILE) $(DESTDIR)$(PREFIX)/share/applications/$(DESKTOPFILE)
+	mkdir -p $(DESTDIR)$(PREFIX)/share/icons/hicolor/scalable/apps/
+	cp $(ICONFILE) $(DESTDIR)$(PREFIX)/share/icons/hicolor/scalable/apps/$(ICONFILE)
 
 # this requires a built source tree and avoids having to install anything system-wide
 devel-install: $(DIST_TEST)
 	mkdir -p ~/.local/share/cockpit
-	ln -s `pwd`/dist ~/.local/share/cockpit/$(PACKAGE_NAME)
+	ln -sfn `pwd`/dist ~/.local/share/cockpit/$(PACKAGE_NAME)
 
 # assumes that there was symlink set up using the above devel-install target,
 # and removes it
@@ -152,10 +158,12 @@ dist: $(TARFILE)
 $(TARFILE): export NODE_ENV ?= production
 $(TARFILE): $(DIST_TEST) $(SPEC) packaging/arch/PKGBUILD packaging/debian/changelog
 	if type appstream-util >/dev/null 2>&1; then appstream-util validate-relax --nonet *.metainfo.xml; fi
+	if type desktop-file-validate >/dev/null 2>&1; then desktop-file-validate $(DESKTOPFILE); fi
 	tar --xz $(TAR_ARGS) -cf $(TARFILE) --transform 's,^,$(RPM_NAME)/,' \
 		--exclude '*.in' --exclude test/reference \
 		$$(git ls-files | grep -v node_modules) \
 		$(COCKPIT_REPO_FILES) $(NODE_MODULES_TEST) $(SPEC) $(TEST_NPMS) \
+		$(DESKTOPFILE) $(ICONFILE) \
 		packaging/arch/PKGBUILD packaging/debian/changelog dist/
 
 # convenience target for developers

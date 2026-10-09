@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- AppArmor icon (original artwork) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+    <path fill="#2b6cb0" d="M256 20 476 104v168c0 124-90 202-220 240C126 474 36 396 36 272V104Z"/>
+    <circle cx="256" cy="228" r="52" fill="#fff"/>
+    <path fill="#fff" d="M256 262c-30 0-54 23-54 52 0 20 11 37 28 46l-15 74h82l-15-74c17-9 28-26 28-46 0-29-24-52-54-52z"/>
+</svg>

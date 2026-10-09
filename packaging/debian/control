@@ -15,6 +15,7 @@ Multi-Arch: foreign
 Depends: ${misc:Depends},
          cockpit-bridge,
          apparmor (>= 3.0),
+Recommends: cockpit-ws,
 Description: Cockpit component for AppArmor
  The Cockpit Web Console enables users to administer GNU/Linux servers using a
  web browser.

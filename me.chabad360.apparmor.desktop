@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=AppArmor
+Comment=Manage AppArmor profiles
+Exec=sh -c "PATH=/usr/libexec:/usr/lib/cockpit:\$PATH exec cockpit-desktop apparmor"
+Icon=me.chabad360.apparmor
+Terminal=false
+Categories=System;Security;
+Keywords=apparmor;security;profile;confinement;
+StartupNotify=true

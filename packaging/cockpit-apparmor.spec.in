@@ -37,6 +37,7 @@ BuildRequires: libappstream-glib-devel
 %endif
 
 Requires:       cockpit-bridge
+Recommends:     cockpit-ws
 Requires:       apparmor >= 3.0.0
 
 %{NPM_PROVIDES}
@@ -53,11 +54,14 @@ The Cockpit user interface for AppArmor.
 %install
 %make_install PREFIX=/usr
 appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/metainfo/*
+desktop-file-validate %{buildroot}/%{_datadir}/applications/*.desktop
 
 %files
 %doc README.md
 %license LICENSE dist/index.js.LEGAL.txt dist/index.css.LEGAL.txt
 %{_datadir}/cockpit/*
 %{_datadir}/metainfo/*
+%{_datadir}/applications/*
+%{_datadir}/icons/hicolor/scalable/apps/*
 
 %changelog
